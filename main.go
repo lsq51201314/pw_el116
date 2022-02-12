@@ -35,7 +35,7 @@ func Init() (err error) {
 	sqlDB.SetMaxIdleConns(20)
 	sqlDB.SetMaxOpenConns(5)
 	// 自动迁移
-	global.MDB.AutoMigrate(
+	_ = global.MDB.AutoMigrate(
 		&elements.EquipmentAddon{},
 		&elements.WeaponMajorType{},
 		&elements.WeaponSubType{},
