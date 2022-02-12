@@ -19,7 +19,7 @@ func GetFileByte(filepath string, offset, length int64) (data []byte, err error)
 		if n, err = file.ReadAt(buf, offset); err == nil {
 			data = buf[:n]
 		}
-		file.Close()
+		_ = file.Close()
 	}
 	return
 }
@@ -27,7 +27,7 @@ func GetFileByte(filepath string, offset, length int64) (data []byte, err error)
 func BytesToIntLittle(b []byte) int {
 	bytesBuffer := bytes.NewBuffer(b)
 	var x int32
-	binary.Read(bytesBuffer, binary.LittleEndian, &x)
+	_ = binary.Read(bytesBuffer, binary.LittleEndian, &x)
 	return int(x)
 }
 
